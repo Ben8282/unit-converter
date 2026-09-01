@@ -222,7 +222,43 @@ Enter a number (1-8):
             } else if to_unit == 8 {
                 length = length / 1609.344;
             }
-            println!("{convert_length_amount} is {length}");
+            let original_unit;
+            if from_unit == 1 {
+                original_unit = "Millimetres (mm)";
+            } else if from_unit == 2 {
+                original_unit = "Centimetres (cm)";
+            } else if from_unit == 3 {
+                original_unit = "Metres (m)";
+            } else if from_unit == 4 {
+                original_unit = "Kilometres (km)";
+            } else if from_unit == 5 {
+                original_unit = "Inches (in)";
+            } else if from_unit == 6 {
+                original_unit = "Feet (ft)";
+            } else if from_unit == 7 {
+                original_unit = "Yards (yd)";
+            } else {
+                original_unit = "Miles (mi)";
+            }
+            let new_unit;
+            if to_unit == 1 {
+                new_unit = "Millimetres (mm)";
+            } else if to_unit == 2 {
+                new_unit = "Centimetres (cm)";
+            } else if to_unit == 3 {
+                new_unit = "Metres (m)";
+            } else if to_unit == 4 {
+                new_unit = "Kilometres (km)";
+            } else if to_unit == 5 {
+                new_unit = "Inches (in)";
+            } else if to_unit == 6 {
+                new_unit = "Feet (ft)";
+            } else if to_unit == 7 {
+                new_unit = "Yards (yd)";
+            } else {
+                new_unit = "Miles (mi)";
+            }
+            println!("{convert_length_amount} {original_unit} is {length} {new_unit}");
             println!("press enter to exit...");
             let mut exit = String::new();
             io::stdin().read_line(&mut exit).unwrap();
