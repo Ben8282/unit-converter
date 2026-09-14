@@ -264,7 +264,7 @@ Enter a number (1-8):
             let mut exit = String::new();
             io::stdin().read_line(&mut exit).unwrap();
             break;
-        }else if category == "3" {
+        } else if category == "3" {
             println!(
                 "Welcome to the Weight Converter!
                 would you like to convert from:
@@ -278,17 +278,18 @@ Enter a number (1-8):
                 Enter a number (1-7):"
             );
             let from_unit_weight: u8;
-            loop{
-            let mut from_unit = String::new();
-            io::stdin().read_line(&mut from_unit).unwrap();
-            let from_unit = from_unit.trim();
-            match from_unit.parse::<u8>() {
-                Ok(num) if (1..=7).contains(&num) => {
-                    from_unit_weight = num;
-                    break;
-                }
-                _ => {
-                    println!("please enter a number between 1 and 7");
+            loop {
+                let mut from_unit = String::new();
+                io::stdin().read_line(&mut from_unit).unwrap();
+                let from_unit = from_unit.trim();
+                match from_unit.parse::<u8>() {
+                    Ok(num) if (1..=7).contains(&num) => {
+                        from_unit_weight = num;
+                        break;
+                    }
+                    _ => {
+                        println!("please enter a number between 1 and 7");
+                    }
                 }
             }
             let convert_weight_amount: f64;
@@ -330,7 +331,7 @@ Enter a number (1-7):"
             let mut exit = String::new();
             io::stdin().read_line(&mut exit).unwrap();
             break;
-         } else {
+        } else {
             println!("please input a number thats 1, 2, or 3")
         }
     }
