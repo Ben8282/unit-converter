@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "version-2"
+name = "unit-converter"
 version = "0.1.0"

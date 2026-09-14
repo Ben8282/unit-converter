@@ -8,6 +8,7 @@ Choose a category:
 
 1. Temperature
 2. Length
+3. Weight
 
 Enter a number:"
         );
@@ -263,8 +264,74 @@ Enter a number (1-8):
             let mut exit = String::new();
             io::stdin().read_line(&mut exit).unwrap();
             break;
-        } else {
-            println!("please input a number thats 1 or 2")
+        }else if category == "3" {
+            println!(
+                "Welcome to the Weight Converter!
+                would you like to convert from:
+                1. Kilograms (kg)
+                2. Grams (g)
+                3. Pounds (lb)
+                4. newtons (N)
+                5. Ounces (oz)
+                6.stones (st)
+                7. Milligrams (mg)
+                Enter a number (1-7):"
+            );
+            let from_unit_weight: u8;
+            loop{
+            let mut from_unit = String::new();
+            io::stdin().read_line(&mut from_unit).unwrap();
+            let from_unit = from_unit.trim();
+            match from_unit.parse::<u8>() {
+                Ok(num) if (1..=7).contains(&num) => {
+                    from_unit_weight = num;
+                    break;
+                }
+                _ => {
+                    println!("please enter a number between 1 and 7");
+                }
+            }
+            let convert_weight_amount: f64;
+            loop {
+                println!("what number would you like to convert");
+                let mut convertwhat = String::new();
+                io::stdin().read_line(&mut convertwhat).unwrap();
+                match convertwhat.trim().parse::<f64>() {
+                    Ok(num) => {
+                        convert_weight_amount = num;
+                        break;
+                    }
+                    Err(_) => println!("there was a problem please enter a valid number"),
+                };
+            }
+            println!(
+                "Choose the unit you want to convert TO:
+1. Kilograms (kg)
+2. Grams (g)
+3. Pounds (lb)
+4. newtons (N)
+5. Ounces (oz)
+6. Stones (st)
+7. Milligrams (mg)
+Enter a number (1-7):"
+            );
+            let mut to_unit = String::new();
+            io::stdin().read_line(&mut to_unit).unwrap();
+            let to_unit = to_unit.trim();
+            let to_unit: u8 = match to_unit.parse() {
+                Ok(num) if (1..=7).contains(&num) => num,
+                _ => {
+                    println!("please enter a number between 1 and 7");
+                    continue;
+                }
+            };
+            println!("Weight converter is not yet implemented.");
+            println!("press enter to exit...");
+            let mut exit = String::new();
+            io::stdin().read_line(&mut exit).unwrap();
+            break;
+         } else {
+            println!("please input a number thats 1, 2, or 3")
         }
     }
 }
