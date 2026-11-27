@@ -553,6 +553,9 @@ Choose the unit you want to convert FROM:
             let result = convert(convert_weight_amount,from_unit_weight_indexer,to_unit_weight_indexer);
 
             println!("{} {} is {} {}", convert_weight_amount,from_unit_weight_indexer.symbol,result,to_unit_weight_indexer.symbol);
+            println!("press enter to exit...");
+            let mut exit = String::new();
+            io::stdin().read_line(&mut exit).unwrap();
             break;
         } else {
             println!("please input a number thats 1 or 2")
