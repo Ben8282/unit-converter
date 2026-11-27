@@ -547,7 +547,13 @@ Choose the unit you want to convert FROM:
                     }
                 }
             }
+
+            let to_unit_weight_indexer = &weight_units[to_unit_weight - 1];
             
+            let result = convert(convert_weight_amount,from_unit_weight_indexer,to_unit_weight_indexer);
+
+            println!("{} {} is {} {}", convert_weight_amount,from_unit_weight_indexer.symbol,result,to_unit_weight_indexer.symbol);
+            break;
         } else {
             println!("please input a number thats 1 or 2")
         }
